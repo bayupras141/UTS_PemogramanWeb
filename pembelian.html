@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>   
+    <title>Home</title>
+    <link rel="stylesheet" href="assets/css/stylesheet.css">
+	<!-- Fontawesome CSS -->
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: rgb(29, 101, 255);
+        }
+
+        li {
+        float: left;
+        }
+
+        li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        }
+
+        li a:hover {
+        background-color: rgb(0, 140, 255);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="biodata.html">Biodata</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="pembelian.html">Pembelian</a></li>
+          </ul>
+    </nav>
+    <!-- <h1>Menu Pembayaran</h1> -->
+    <div class="container">
+    <form id="survey-form">
+      <label for="idMember" id="idMember-label">
+        Id member
+        <input type="text" id="idMember" placeholder="Masukan id member" required/>
+      </label>
+      <label for="nama" id="nama-label">
+        Nama
+        <input type="text" id="nama" placeholder="Masukan nama" required/>
+      </label>
+
+      <label for="status" id="status-label"> Status member </label>
+      <input id="status" type="radio" name="status" value="1" checked/> Non Member
+      <input id="status" type="radio" name="status" value="2"/> Member <br>
+      <br>
+
+      <label for="dropdown" id="dropdown-label">
+        Jenis makanan?
+        <select id="dropdown">
+          <option>Nasi goreng</option>
+          <option>Bakso</option>
+          <option>Mie ayam</option>
+          <option>Soto</option>
+        </select>
+      </label>
+
+      <label for="number" id="number-label">
+        Jumlah pesanan
+        <input type="number" id="jumlah" placeholder="Masukan jumlah pesanan"/>
+      </label>
+      <button type="submit" onclick="hitung()">Submit</button>
+    </form>
+    </div>
+    <script type="text/javascript">
+      function hitung(){
+        var jnsMakanan = document.getElementById('dropdown').value;
+        var jumlah = document.getElementById('jumlah').value;
+        var status = document.getElementById('status').value;
+        var nama = document.getElementById('nama').value;
+
+        if (status == "1") {
+            if (jnsMakanan == "Nasi goreng")
+          {
+            if(jumlah == 1 || jumlah <= 3){
+              var harga = 11000;
+              var hasilTotal = jumlah * harga;
+              alert(nama+" Total pembayaran "+ jnsMakanan +" anda "+hasilTotal+" .Anda tidak mendapatkan diskon")
+            } else if(jumlah > 3){
+              var harga = 11000;
+              var discount = harga * 0.05;
+              var hasilTotal = jumlah * harga - discount;
+              alert(nama+" Total pembayaran "+ jnsMakanan +" anda "+hasilTotal+" .Anda mendapatkan diskon 5%")
+            }
+          }
+          if (jnsMakanan == "Bakso")
+          {
+            if(jumlah == 1 || jumlah <= 3){
+              var harga = 8000;
+              var hasilTotal = jumlah * harga;
+              alert(nama+" Total pembayaran "+ jnsMakanan +" anda "+hasilTotal+". Anda tidak mendapatkan diskon")
+            } else if(jumlah > 3){
+              var harga = 8000;
+              var discount = harga * 0.05;
+              var hasilTotal = jumlah * harga - discount;
+              alert(nama+" Total pembayaran "+ jnsMakanan +" anda "+hasilTotal+" .Anda mendapatkan diskon 5%")
+            }
+            
+          }
+          if (jnsMakanan == "Mie Ayam")
+          {
+            if(jumlah == 1 || jumlah <= 3){
+              var harga = 9000;
+              var hasilTotal = jumlah * harga;
+              alert(nama+" Total pembayaran "+ jnsMakanan +" anda "+hasilTotal+" .Anda tidak mendapatkan diskon")
+            } else if(jumlah > 3){
+              var harga = 9000;
+              var discount = harga * 0.05;
+              var hasilTotal = jumlah * harga - discount;
+              alert(nama+" Total pembayaran "+ jnsMakanan +" anda "+hasilTotal+" .Anda mendapatkan diskon 5%")
+            }
+          }
+          if (jnsMakanan == "Soto")
+          {
+            if(jumlah == 1 || jumlah <= 3){
+              var harga = 10000;
+              var hasilTotal = jumlah * harga;
+              alert(nama+" Total pembayaran "+ jnsMakanan +" anda "+hasilTotal+" .Anda tidak mendapatkan diskon")
+            } else if(jumlah > 3){
+              var harga = 10000;
+              var discount = harga * 0.05;
+              var hasilTotal = jumlah * harga - discount;
+              alert(nama+" Total pembayaran "+ jnsMakanan +" anda "+hasilTotal+" .Anda mendapatkan diskon 5%")
+            }
+          }
+        } 
+        if(status == "2") {
+          if (jnsMakanan == "Nasi goreng")
+          {
+            if(jumlah == 1){
+              var harga = 11000;
+              var discount = harga * 0.05;
+              var hasilTotal = jumlah * harga;
+              alert(nama+" Total pembayaran "+ jnsMakanan +" anda "+hasilTotal+" .Anda mendapatkan diskon 5%")
+            } else if(jumlah > 2 || jumlah <= 3){
+              var harga = 11000;
+              var discount = harga * 0.07;
+              var hasilTotal = jumlah * harga - discount;
+              alert(nama+" Total pembayaran "+ jnsMakanan +" anda "+hasilTotal+" .Anda mendapatkan diskon 7%")
+            } else if(jumlah > 4){
+              var harga = 11000;
+              var discount = harga * 0.1;
+              var hasilTotal = jumlah * harga - discount;
+              alert(nama+" Total pembayaran "+ jnsMakanan +" anda "+hasilTotal+" .Anda mendapatkan diskon 10%")
+            }
+          }
+          if (jnsMakanan == "Bakso")
+          {
+            if(jumlah == 1){
+              var harga = 8000;
+              var discount = harga * 0.05;
+              var hasilTotal = jumlah * harga;
+              alert(nama+" Total pembayaran "+ jnsMakanan +" anda "+hasilTotal+" .Anda mendapatkan diskon 5%")
+            } else if(jumlah > 2 || jumlah <= 3){
+              var harga = 8000;
+              var discount = harga * 0.07;
+              var hasilTotal = jumlah * harga - discount;
+              alert(nama+" Total pembayaran "+ jnsMakanan +" anda "+hasilTotal+" .Anda mendapatkan diskon 7%")
+            } else if(jumlah > 4){
+              var harga = 8000;
+              var discount = harga * 0.1;
+              var hasilTotal = jumlah * harga - discount;
+              alert(nama+" Total pembayaran "+ jnsMakanan +" anda "+hasilTotal+" .Anda mendapatkan diskon 10%")
+            }
+          }
+          if (jnsMakanan == "Mie Ayam")
+          {
+            if(jumlah == 1){
+              var harga = 9000;
+              var discount = harga * 0.05;
+              var hasilTotal = jumlah * harga;
+              alert(nama+" Total pembayaran "+ jnsMakanan +" anda "+hasilTotal+" .Anda mendapatkan diskon 5%")
+            } else if(jumlah > 2 || jumlah <= 3){
+              var harga = 9000;
+              var discount = harga * 0.07;
+              var hasilTotal = jumlah * harga - discount;
+              alert(nama+" Total pembayaran "+ jnsMakanan +" anda "+hasilTotal+" .Anda mendapatkan diskon 7%")
+            } else if(jumlah > 4){
+              var harga = 9000;
+              var discount = harga * 0.1;
+              var hasilTotal = jumlah * harga - discount;
+              alert(nama+" Total pembayaran "+ jnsMakanan +" anda "+hasilTotal+" .Anda mendapatkan diskon 10%")
+            }
+          }
+          if (jnsMakanan == "Soto")
+          {
+            if(jumlah == 1){
+              var harga = 10000;
+              var discount = harga * 0.05;
+              var hasilTotal = jumlah * harga;
+              alert(nama+" Total pembayaran "+ jnsMakanan +" anda "+hasilTotal+" .Anda mendapatkan diskon 5%")
+            } else if(jumlah > 2 || jumlah <= 3){
+              var harga = 10000;
+              var discount = harga * 0.07;
+              var hasilTotal = jumlah * harga - discount;
+              alert(nama+" Total pembayaran "+ jnsMakanan +" anda "+hasilTotal+" .Anda mendapatkan diskon 7%")
+            } else if(jumlah > 4){
+              var harga = 10000;
+              var discount = harga * 0.1;
+              var hasilTotal = jumlah * harga - discount;
+              alert(nama+" Total pembayaran "+ jnsMakanan +" anda "+hasilTotal+" .Anda mendapatkan diskon 10%")
+            }
+          }
+        }
+
+        
+      }
+    </script>
+</body>
+</html>
